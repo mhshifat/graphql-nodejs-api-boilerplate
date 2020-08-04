@@ -1,0 +1,9 @@
+type Query {
+  root: RootResponse!
+}
+
+type RootResponse {
+  apiName: String!
+  endPoint: String!
+  apiUri: String!
+}
