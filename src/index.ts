@@ -1,15 +1,18 @@
 import { GraphQLServer } from "graphql-yoga";
 import { config } from "./config";
-import { CBD } from "./database/index";
+import { CBD } from "./database";
+import { models, ModelsType } from "./models";
 import { resolvers, typeDefs } from "./modules";
 
-export interface IContext {}
+export interface IContext {
+  models: ModelsType;
+}
 
 const { api, db } = config;
 const server = new GraphQLServer({
   typeDefs,
   resolvers,
-  context: (): IContext => ({}),
+  context: (): IContext => ({ models }),
 });
 
 CBD(db.uri)
