@@ -17,7 +17,7 @@ export const config = {
       const h = date.getHours() % 12;
       const m = date.getMinutes();
       const s = date.getSeconds();
-      return `${h < 10 ? "0" + h : h}:${m}:${s}`;
+      return `${h < 10 ? "0" + h : h}:${m < 10 ? "0" + m : m}:${s < 10 ? "0" + s : s}`;
     },
   },
   db: {
